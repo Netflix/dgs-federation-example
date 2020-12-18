@@ -1,0 +1,9 @@
+type Query {
+    shows(titleFilter: String): [Show]
+}
+
+type Show @key(fields: "id") {
+    id: ID
+    title: String
+    releaseYear: Int
+}

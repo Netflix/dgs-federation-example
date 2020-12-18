@@ -1,0 +1,8 @@
+type Show @key(fields: "id") @extends {
+    id: ID @external
+    reviews: [Review]
+}
+
+type Review {
+    starRating: Int
+}
