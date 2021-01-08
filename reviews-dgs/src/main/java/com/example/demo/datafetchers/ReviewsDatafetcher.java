@@ -14,14 +14,19 @@ import java.util.stream.Collectors;
 @DgsComponent
 public class ReviewsDatafetcher {
 
-    Map<String, Review> reviews = new HashMap<>();
+    Map<String, List<Review>> reviews = new HashMap<>();
 
     public ReviewsDatafetcher() {
-        reviews.put("1", new Review(5));
-        reviews.put("1", new Review(4));
-        reviews.put("1", new Review(5));
-        reviews.put("2", new Review(3));
-        reviews.put("2", new Review(5));
+        List<Review> review1 = new ArrayList<>();
+        review1.add(new Review(5));
+        review1.add(new Review(4));
+        review1.add(new Review(5));
+        reviews.put("1", review1);
+
+        List<Review> review2 = new ArrayList<>();
+        review2.add(new Review(3));
+        review2.add(new Review(5));
+        reviews.put("2", review2);
     }
 
     @DgsEntityFetcher(name = "Show")
@@ -32,9 +37,6 @@ public class ReviewsDatafetcher {
     @DgsData(parentType = "Show", field = "reviews")
     public List<Review> reviewsFetcher(DgsDataFetchingEnvironment dataFetchingEnvironment)  {
         Show show = dataFetchingEnvironment.getSource();
-        return reviews.entrySet().stream()
-                .filter(it -> it.getKey().equals(show.getId()))
-                .map(it  -> it.getValue())
-                .collect(Collectors.toList());
+        return reviews.get(show.getId());
     }
 }
