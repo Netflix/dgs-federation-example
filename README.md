@@ -1,5 +1,7 @@
 This repository is a GraphQL demo of using the DGS framework together with Apollo Federation Server.
 
+Documentation for the DGS framework can be found [here](https://netflix.github.io/dgs).
+
 The repository contains three separate projects:
 
 1. `shows-dgs`: A Java GraphQL service providing the federated `Show` type
@@ -31,3 +33,9 @@ The following is a federated query that should work.
   }
 }
 ```
+
+Other DGS framework examples
+----
+
+* Standalone DGS in [Java](https://github.com/Netflix/dgs-examples-java)
+* Standalone DGS in [Kotlin](https://github.com/Netflix/dgs-examples-kotlin)
