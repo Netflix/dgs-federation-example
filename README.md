@@ -4,8 +4,8 @@ Documentation for the DGS framework can be found [here](https://netflix.github.i
 
 The repository contains three separate projects:
 
-1. `shows-dgs`: A Java GraphQL service providing the federated `Show` type
-2. `reviews-dgs`: A Kotlin GraphQL service that extends the `Show` type with `reviews`
+1. `shows-dgs`: A Kotlin GraphQL service providing the federated `Show` type
+2. `reviews-dgs`: A Java GraphQL service that extends the `Show` type with `reviews`
 3. `apollo-gateway`: An instance of Apollo Server acting as the Federated Gateway
 
 The `shows-dgs` and `reviews-dgs` projects are Gradle projects.
