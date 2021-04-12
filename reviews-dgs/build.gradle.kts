@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Netflix, Inc.
+ * Copyright 2021 Netflix, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.10.RELEASE"
 	kotlin("plugin.spring") version "1.4.10"
 	id("java")
-	id("com.netflix.dgs.codegen") version "4.0.12"
+	id("com.netflix.dgs.codegen") version "4.4.3"
 }
 
 group = "com.example"
@@ -29,17 +29,16 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
-	jcenter()
 }
 
 dependencies {
-	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:3.0.10")
+	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:3.10.2"))
+	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
 
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-@OptIn(kotlin.ExperimentalStdlibApi::class)
 tasks.withType<com.netflix.graphql.dgs.codegen.gradle.GenerateJavaTask> {
 	generateClient = true
 	packageName = "com.example.demo.generated"
