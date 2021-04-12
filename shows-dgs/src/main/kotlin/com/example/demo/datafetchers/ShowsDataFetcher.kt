@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Netflix, Inc.
+ * Copyright 2021 Netflix, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import com.example.demo.generated.types.Show
 import com.example.demo.services.ShowsService
 import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsData
+import com.netflix.graphql.dgs.DgsQuery
 import com.netflix.graphql.dgs.InputArgument
 import org.springframework.beans.factory.annotation.Autowired
 
@@ -28,8 +29,8 @@ class ShowsDataFetcher {
     @Autowired
     lateinit var showsService : ShowsService
 
-    @DgsData(parentType = "Query", field = "shows")
-    fun shows(@InputArgument("titleFilter") titleFilter : String?): List<Show> {
+    @DgsQuery
+    fun shows(@InputArgument titleFilter : String?): List<Show> {
         return if(titleFilter != null) {
             showsService.shows().filter { it.title?.contains(titleFilter) == true }
         } else {

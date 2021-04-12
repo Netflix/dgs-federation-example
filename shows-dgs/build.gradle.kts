@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Netflix, Inc.
+ * Copyright 2021 Netflix, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.10.RELEASE"
 	kotlin("jvm") version "1.4.10"
 	kotlin("plugin.spring") version "1.4.10"
-	id("com.netflix.dgs.codegen") version "4.0.9"
+	id("com.netflix.dgs.codegen") version "4.4.3"
 }
 
 group = "com.example"
@@ -30,17 +30,13 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
-	jcenter()
-	mavenLocal()
 }
 
 dependencies {
-	api("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:3.0.10")
+	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:3.10.2"))
+	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
 
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
