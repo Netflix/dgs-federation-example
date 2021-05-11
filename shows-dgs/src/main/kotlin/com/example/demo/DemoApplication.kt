@@ -16,11 +16,29 @@
 
 package com.example.demo
 
+import graphql.execution.instrumentation.Instrumentation
+import graphql.execution.instrumentation.tracing.TracingInstrumentation
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
-class DemoApplication
+class DemoApplication {
+
+    /**
+     * If you wan to leverage Apollo Tracing, as supported by java-graphql, you can just create a bean of type [TracingInstrumentation].
+     * In this example we added a conditional property on the bean to enable/disable the Apollo Tracing.
+     * Enabled by default, you can turn it off by setting `graphql.tracing.enabled=false` in your application properties.
+     *
+     * @see [Apollo Tracing](https://github.com/apollographql/apollo-tracing)
+     */
+    @Bean
+    @ConditionalOnProperty(prefix = "graphql.tracing", name = ["enabled"], matchIfMissing = true)
+    open fun tracingInstrumentation(): Instrumentation? {
+        return TracingInstrumentation()
+    }
+}
 
 fun main(args: Array<String>) {
 	runApplication<DemoApplication>(*args)
