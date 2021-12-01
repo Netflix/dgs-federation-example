@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/reviews-dgs"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gradle"
+    directory: "/shows-dgs"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/apollo-gateway"
+    schedule:
+      interval: "daily"
