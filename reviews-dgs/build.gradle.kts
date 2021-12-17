@@ -20,7 +20,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("plugin.spring") version "1.6.10"
 	id("java")
-	id("com.netflix.dgs.codegen") version "5.1.11"
+	id("com.netflix.dgs.codegen") version "5.1.12"
 }
 
 group = "com.example"
