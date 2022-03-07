@@ -15,7 +15,7 @@ public class ReviewsDgs {
     }
 
     /**
-     * If you wan to leverage Apollo Tracing, as supported by java-graphql, you can just create a bean of type {@link TracingInstrumentation}.
+     * If you want to leverage Apollo Tracing, as supported by java-graphql, you can just create a bean of type {@link TracingInstrumentation}.
      * In this example we added a conditional property on the bean to enable/disable the Apollo Tracing.
      * Enabled by default, you can turn it off by setting `graphql.tracing.enabled=false` in your application properties.
      *
