@@ -13,6 +13,6 @@
   "dependencies": {
     "@apollo/gateway": "^0.51.0",
     "apollo-server": "^2.19.0",
-    "graphql": "^15.4.0"
+    "graphql": "^16.5.0"
   }
 }
