@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:4.10.3"))
+	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:4.10.4"))
 	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
 
 	implementation("org.springframework.boot:spring-boot-starter-web")
