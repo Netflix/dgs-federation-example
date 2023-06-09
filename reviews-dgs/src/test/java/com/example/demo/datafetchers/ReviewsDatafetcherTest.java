@@ -53,7 +53,7 @@ class ReviewssDatafetcherTest {
     @Test
     void showsWithEntitiesQueryBuilder() {
         EntitiesGraphQLQuery entitiesQuery = new EntitiesGraphQLQuery.Builder().addRepresentationAsVariable(ShowRepresentation.newBuilder().id("1").build()).build();
-        GraphQLQueryRequest request = new GraphQLQueryRequest(entitiesQuery, new EntitiesProjectionRoot().onShow().reviews().starRating());
+        GraphQLQueryRequest request = new GraphQLQueryRequest(entitiesQuery, new EntitiesProjectionRoot<>().onShow().reviews().starRating());
         List<Review> reviewsList = dgsQueryExecutor.executeAndExtractJsonPathAsObject(
                 request.serialize(),
                 "data['_entities'][0].reviews", entitiesQuery.getVariables(), new TypeRef<>() {

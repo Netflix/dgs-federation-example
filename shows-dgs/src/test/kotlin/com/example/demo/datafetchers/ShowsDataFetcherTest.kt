@@ -82,7 +82,7 @@ class ShowsDataFetcherTest {
             GraphQLQueryRequest(
                 ShowsGraphQLQuery.Builder()
                     .build(),
-                ShowsProjectionRoot().title())
+                ShowsProjectionRoot<>().title())
         val titles = dgsQueryExecutor.executeAndExtractJsonPath<List<String>>(graphQLQueryRequest.serialize(), "data.shows[*].title")
         assertThat(titles).contains("mock title")
     }

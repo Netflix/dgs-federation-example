@@ -20,7 +20,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.12.RELEASE"
 	kotlin("plugin.spring") version "1.6.21"
 	id("java")
-	id("com.netflix.dgs.codegen") version "5.5.0"
+	id("com.netflix.dgs.codegen") version "5.11.1"
 }
 
 group = "com.example"
@@ -40,7 +40,7 @@ dependencies {
 }
 
 tasks.withType<com.netflix.graphql.dgs.codegen.gradle.GenerateJavaTask> {
-	generateClient = true
+	generateClientv2 = true
 	packageName = "com.example.demo.generated"
 }
 
