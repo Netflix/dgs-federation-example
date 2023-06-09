@@ -42,7 +42,7 @@ dependencies {
 
 @OptIn(kotlin.ExperimentalStdlibApi::class)
 tasks.withType<com.netflix.graphql.dgs.codegen.gradle.GenerateJavaTask> {
-	generateClient = true
+	generateClientv2 = true
 	packageName = "com.example.demo.generated"
 }
 
